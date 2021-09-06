@@ -1,0 +1,25 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahKubik/README-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahKubik/README-Generator/issues"
+  },
+  "homepage": "https://github.com/SarahKubik/README-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "util": "^0.12.4",
+    "utils": "^0.2.2"
+  }
+}

@@ -1,13 +1,15 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
+const utils = require('utils');
 
-// create writeFile function using promises instead of a callback function
-const writeFileAsync = util.promisify(fs.writeFile);
+// // create writeFile function using promises instead of a callback function
+// const writeFileAsync = util.promisify(fs.writeFile);
 
-const promptUser = () => {
-    return inquirer.prompt([
-   
+// const promptUser = () => {
+//     return inquirer.prompt([
+  
+//Questions to build Readme.md
+const  questions =[
     {
         type: 'input',
         name: 'title',
@@ -65,49 +67,33 @@ const promptUser = () => {
         message: 'What is your email?'
     }
 
-]);
-};
+];
 
-const generateReadme = (answers) =>
-  `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Title ${data.title}</h1>
+// function to write README file
+function writeToFile(fileName, data) {
+	fs.writeFile(fileName, data, (err, data) => {
+		return err ? err : data;
+	});
+}
 
-    <h2 class="display-4">User Story ${data.usage}</h2>
-    <h2 class="display-4">Acceptance Criteria ${data.criteria}</h2>
-    <h2 class="display-4">Installation ${data.technology}</h2>
-    <h2 class="display-4"Contributors ${data.contributors}</h2>
-    <h2>Example heading <span class="badge badge-secondary">Links</span></h2>
-    <ul class="list-group">
-      <li class="list-group-item">GitHub URL: ${data.gitrepo}</li>
-      <li class="list-group-item">App URL: ${data.appurl}</li>  
-    </ul>
-    <h2>Example heading <span class="badge badge-secondary">Contact Info</span></h2>
-    <ul class="list-group">
-      <li class="list-group-item">GitHub username: ${data.github}</li>
-      <li class="list-group-item">LinkedIn: ${data.linkedin}</li>
-      <li class="list-group-item">Email: ${data.email}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+// function to initialize program
+async function init() {
+	console.log(
+        `Create your own professional Readme.md by answering questions when prompted.`
+    );
 
-// Bonus using writeFileAsync as a promise
-const init = () => {
-  promptUser()
-    .then((answers) => writeFileAsync('readme.md', generateReadme(answers)))
-    .then(() => console.log('Successfully wrote to readme.md'))
-    .catch((err) => console.error(err));
-};
+    
+    try {
+		const answers = await inquirer.prompt(questions);
+		const readme = generateMarkdown(answers);
 
+		writeToFile("sample-README.md", readme);
+		console.log(`
+        Success! A README.md file was created.`);
+	} catch (err) {
+		console.log(`Error: ${err}`);
+	}
+}
+
+// function call to initialize program
 init();
