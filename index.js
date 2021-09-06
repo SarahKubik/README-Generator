@@ -3,13 +3,13 @@ const fs = require('fs');
 const utils = require('utils');
 
 // // create writeFile function using promises instead of a callback function
-// const writeFileAsync = util.promisify(fs.writeFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
-// const promptUser = () => {
-//     return inquirer.prompt([
+const promptUser = () => {
+    return inquirer.prompt([
   
 //Questions to build Readme.md
-const  questions =[
+inquirer.prompt([
     {
         type: 'input',
         name: 'title',
@@ -67,33 +67,38 @@ const  questions =[
         message: 'What is your email?'
     }
 
-];
+    // User reponses will print in terminal
+]).then ((responses)=> {
+    fs.appendFile('log.json',JSON.stringify(responses), (err) => {
+err ? console.error(err) : console.log ("Success!")
+    })
+})
 
-// function to write README file
-function writeToFile(fileName, data) {
-	fs.writeFile(fileName, data, (err, data) => {
-		return err ? err : data;
-	});
-}
+// // function to write README file
+// function writeToFile(fileName, data) {
+// 	fs.writeFile(fileName, data, (err, data) => {
+// 		return err ? err : data;
+// 	});
+// }
 
-// function to initialize program
-async function init() {
-	console.log(
-        `Create your own professional Readme.md by answering questions when prompted.`
-    );
+// // function to initialize program
+// async function init() {
+// 	console.log(
+//         `Create your own professional Readme.md by answering questions when prompted.`
+//     );
 
     
-    try {
-		const answers = await inquirer.prompt(questions);
-		const readme = generateMarkdown(answers);
+//     try {
+// 		const answers = await inquirer.prompt(questions);
+// 		const readme = generateMarkdown(answers);
 
-		writeToFile("sample-README.md", readme);
-		console.log(`
-        Success! A README.md file was created.`);
-	} catch (err) {
-		console.log(`Error: ${err}`);
-	}
-}
+// 		writeToFile("sample-README.md", readme);
+// 		console.log(`
+//         Success! A README.md file was created.`);
+// 	} catch (err) {
+// 		console.log(`Error: ${err}`);
+// 	}
+// }
 
-// function call to initialize program
-init();
+// // function call to initialize program
+// init();
