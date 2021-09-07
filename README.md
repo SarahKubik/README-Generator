@@ -20,8 +20,8 @@ The fs.writeFile is used to generate your project's README.md file.
 
 * Visual Studio Code
 * Node
-* CSS
 * JavaScript
+* Video to Markdown
 
 ## Links
 
