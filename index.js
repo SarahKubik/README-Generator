@@ -3,7 +3,7 @@ const fs = require('fs');
 const util = require('util');
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
-  
+
 //Questions to build Readme.md
 const questions = ([
     {
@@ -14,7 +14,7 @@ const questions = ([
     },
     {
         type: 'input',
-        name: 'story',
+        name: 'usage',
         message: 'Describe the usage of this application',
         type: 'string'
     },
@@ -45,11 +45,17 @@ const questions = ([
             'Apache 2.0',
             'MIT',
             'GNU GPL v3.0'
-        ]
+        ],
     },
     {
         type: 'input',
-        name: 'links',
+        name: 'linkrepo',
+        message: 'What is the URL to your Github repo?',
+        type: 'string'
+    },
+    {
+        type: 'input',
+        name: 'linkurl',
         message: 'What is the URL to your live application?',
         type: 'string'
     },
@@ -86,7 +92,7 @@ async function init() {
         `Create your own professional Readme.md by answering questions when prompted.`
     );
 
-    
+
 try {
 		const answers = await inquirer.prompt(questions);
 		const readme = generateMarkdown(answers);
