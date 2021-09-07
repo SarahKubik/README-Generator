@@ -14,7 +14,7 @@ The fs.writeFile is used to generate your project's README.md file.
 
 ## Mock-up
 
-![Demo image](./assets/images/)
+[![Readme Generator](https://res.cloudinary.com/marcomontalbano/image/upload/v1630992520/video_to_markdown/images/google-drive--1pp2PoVrxWOEIS1KRw2aVOhynU2l08PUZ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1pp2PoVrxWOEIS1KRw2aVOhynU2l08PUZ/preview "Readme Generator")
 
 ## Installation
 
