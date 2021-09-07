@@ -28,7 +28,7 @@ function generateMarkdown(data) {
     *[Contributors](#contributors)
     *[License](#license)
     *[links](#links)
-    *[Contact](#github),(#linkedin),(#email)
+    *[Contact](#github)(#linkedin)(#email)
 
     ## User Story
     ${story}
@@ -55,4 +55,4 @@ function generateMarkdown(data) {
     
     `;
 
-export default generateMarkdown;
+module.exports = generateMarkdown;

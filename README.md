@@ -14,7 +14,7 @@ The fs.writeFile is used to generate your project's README.md file.
 
 ## Mock-up
 
-![The application has a blue gray button labeled Start Quiz](./assets/images/quizchallenge.JPG)
+![Demo image](./assets/images/)
 
 ## Installation
 
